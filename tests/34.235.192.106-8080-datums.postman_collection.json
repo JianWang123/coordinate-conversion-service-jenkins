@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "9728a577-3f6d-4d13-95c1-626e9e34e047",
+		"name": "34.235.192.106:8080/datums",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://34.235.192.106:8080/datums  ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "27e29670-a751-4d7d-ab8d-10708fccd67c",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Code is Present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"code\");",
+							"});",
+							"",
+							"pm.test(\"Name is Present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"var jsonData = pm.response.json();",
+							"console.log(jsonData.availableDatums.length);",
+							"",
+							"pm.test(\"The records number should be \" +jsonData.availableDatums.length , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.availableDatums.length).to.eql(253);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://34.235.192.106:8080/datums",
+					"protocol": "http",
+					"host": [
+						"34",
+						"235",
+						"192",
+						"106"
+					],
+					"port": "8080",
+					"path": [
+						"datums"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

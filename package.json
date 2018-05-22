@@ -1,0 +1,15 @@
+{
+  "name": "coordinate-conversion-service-jenkins",
+  "version": "1.0.0",
+  "description": "Project for Coordinate Conersion Service Test",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "api-tests-coordinateConversion": "newman run tests/34.235.192.106-8080-datums.postman_collection.json"
+  },
+  "author": "Jian Wang",
+  "dependencies": {
+    "newman": "^3.9.3"
+  }
+}
